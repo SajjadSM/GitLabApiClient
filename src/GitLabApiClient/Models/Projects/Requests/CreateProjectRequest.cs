@@ -175,5 +175,11 @@ namespace GitLabApiClient.Models.Projects.Requests
         /// </summary>
         [JsonProperty("ci_config_path")]
         public string CiConfigPath { get; set; }
+
+        /// <summary>
+        /// set auto_cancel_pending_pipelines value should be enabled or disabled.
+        /// </summary>
+        [JsonProperty("auto_cancel_pending_pipelines")]
+        public string AutoCancelPendinPipelines { get; set; }
     }
 }

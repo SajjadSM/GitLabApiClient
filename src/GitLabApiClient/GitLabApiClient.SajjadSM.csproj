@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net48;netcoreapp3.1;net5.0</TargetFrameworks>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Copyright />
+    <Description>GitLabApiClient is a .NET rest client for GitLab API v4.</Description>
+    <Authors>SajjadSM</Authors>
+    <PackageProjectUrl>https://github.com/sajjadsm/GitLabApiClient/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/sajjadsm/GitLabApiClient/</RepositoryUrl>
+    <PackageTags>GitLab REST API CI Client</PackageTags>
+    <PackageId>GitLabApiClient.SajjadSM</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Company>SajjadSM</Company>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <UseFullSemVerForNuGet>true</UseFullSemVerForNuGet>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Version>1.8.2</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild >true</ContinuousIntegrationBuild>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="All" Version="1.0.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <!-- Workaround for https://github.com/GitTools/GitVersion/issues/1031 -->
+  <!-- The GitVersion property group is now obsolete for local packing -->
+
+</Project>

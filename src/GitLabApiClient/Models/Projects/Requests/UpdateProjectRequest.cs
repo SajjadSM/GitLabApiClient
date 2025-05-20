@@ -142,6 +142,6 @@ namespace GitLabApiClient.Models.Projects.Requests
         /// set auto_cancel_pending_pipelines value should be enabled or disabled.
         /// </summary>
         [JsonProperty("auto_cancel_pending_pipelines")]
-        public string AutoCancelPendinPipelines { get; set; }
+        public string AutoCancelPendingPipelines { get; set; }
     }
 }

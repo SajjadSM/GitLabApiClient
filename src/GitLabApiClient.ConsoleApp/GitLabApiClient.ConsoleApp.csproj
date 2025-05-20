@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\GitLabApiClient\GitLabApiClient.csproj" />
+    <ProjectReference Include="..\GitLabApiClient\GitLabApiClient.SajjadSM.csproj" />
   </ItemGroup>
 
   <ItemGroup>

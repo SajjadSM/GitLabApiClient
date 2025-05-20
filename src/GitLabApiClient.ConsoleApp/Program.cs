@@ -34,7 +34,7 @@ class Program
 
             var newProject = CreateProjectRequest.FromName("GitlabClientTest3");
             newProject.DefaultBranch = "main";
-            // newProject.AutoCancelPendinPipelines = "disabled";
+            newProject.AutoCancelPendingPipelines = "disabled";
 
             var result = await client.Projects.CreateAsync(newProject);
 

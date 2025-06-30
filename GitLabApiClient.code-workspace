@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+	],
+	"settings": {
+		"dotnet.defaultSolution": "GitLabApiClient.sln",
+		"csharp.suppressDotnetRestoreNotification": true,
+	}
+}

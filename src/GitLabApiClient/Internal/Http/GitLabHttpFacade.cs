@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -70,6 +71,9 @@ namespace GitLabApiClient.Internal.Http
 
         public Task GetFile(string uri, string outputPath) =>
             _requestor.GetFile(uri, outputPath);
+
+        public Task<Stream> GetFileStream(string uri) =>
+            _requestor.GetFileStream(uri);
 
         public Task<T> Post<T>(string uri, object data = null) where T : class =>
             _requestor.Post<T>(uri, data);

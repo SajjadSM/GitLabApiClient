@@ -38,6 +38,14 @@ namespace GitLabApiClient.Internal.Http
             }
         }
 
+        public async Task<Stream> GetFileStream(string url)
+        {
+            var response = await _client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+            var inputStream = await response.Content.ReadAsStreamAsync();
+            return inputStream;
+        }
+
         public async Task<T> Post<T>(string url, object data = null)
         {
             StringContent content = SerializeToString(data);

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using GitLabApiClient.Models.Files.Responses;
 using System.Threading.Tasks;
 using GitLabApiClient.Internal.Paths;
 using GitLabApiClient.Models.Job.Requests;
@@ -12,6 +13,7 @@ using GitLabApiClient.Models.Runners.Responses;
 using GitLabApiClient.Models.Users.Responses;
 using GitLabApiClient.Models.Variables.Request;
 using GitLabApiClient.Models.Variables.Response;
+using System.IO;
 
 namespace GitLabApiClient
 {
@@ -213,5 +215,14 @@ namespace GitLabApiClient
         /// <param name="projectId">The ID, path or <see cref="Project"/> of the project.</param>
         /// <returns>Status of the import</returns>
         Task<ImportStatus> GetImportStatusAsync(ProjectId projectId);
+
+        /// <summary>
+        /// Download repository files in the specified format.
+        /// </summary>
+        /// <param name="projectId">The ID, path or <see cref="Project"/> of the project.</param>
+        /// <param name="branchName">The name of the branch to download.</param>
+        /// <param name="format">The format to download (default is "zip").</param>
+        /// <returns>Status of the import</returns>
+        Task<Stream> DownloadAsync(int projectId, string branchName, string format = "zip");
     }
 }

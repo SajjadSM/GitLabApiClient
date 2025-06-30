@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using GitLabApiClient.Internal.Http;
 using GitLabApiClient.Internal.Paths;
@@ -17,6 +18,8 @@ using GitLabApiClient.Models.Uploads.Requests;
 using GitLabApiClient.Models.Users.Responses;
 using GitLabApiClient.Models.Variables.Request;
 using GitLabApiClient.Models.Variables.Response;
+using GitLabApiClient.Models.Files.Responses;
+using System.IO;
 
 namespace GitLabApiClient
 {
@@ -106,7 +109,7 @@ namespace GitLabApiClient
             var queryOptions = new JobQueryOptions();
             options?.Invoke(queryOptions);
 
-            var url = _jobQueryBuilder.Build($"projects/{projectId}/jobs", queryOptions);
+            string url = _jobQueryBuilder.Build($"projects/{projectId}/jobs", queryOptions);
             return await _httpFacade.GetPagedList<Job>(url);
         }
 
@@ -334,6 +337,15 @@ namespace GitLabApiClient
         public async Task<ImportStatus> GetImportStatusAsync(ProjectId projectId)
         {
             return await _httpFacade.Get<ImportStatus>($"projects/{projectId}/import");
+        }
+
+        /// <summary>
+        /// Archive project.
+        /// </summary>
+        /// <param name="projectId">The ID, path or <see cref="Project"/> of the project.</param>
+        public async Task<Stream> DownloadAsync(int projectId, string branchName, string format = "zip")
+        {
+            return await _httpFacade.GetFileStream($"projects/{projectId}/repository/archive.{format}?sha={branchName}");
         }
     }
 }

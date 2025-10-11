@@ -34,9 +34,8 @@ class Program
             // var proj = await client.Projects.GetAsync(3798);
             // Console.WriteLine($"Retrieved {proj.Name} project.");
 
-            var result = await client.Projects.DownloadAsync(37984343, "main", "zip");
-            Console.WriteLine($"Download result: {result} bytes");
-
+            var result = await client.Jobs.PlayAsync(52, 24873);
+            Console.WriteLine($"Retried job with ID: {result.Id}, Status: {result.Status}");
         }
         catch (Exception ex)
         {

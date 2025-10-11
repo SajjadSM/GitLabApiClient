@@ -74,6 +74,7 @@ namespace GitLabApiClient
             Commits = new CommitsClient(_httpFacade, commitQueryBuilder, commitRefsQueryBuilder, commitStatusesQueryBuilder);
             Markdown = new MarkdownClient(_httpFacade);
             Pipelines = new PipelineClient(_httpFacade, pipelineQueryBuilder, jobQueryBuilder);
+            Jobs = new JobClient(_httpFacade);
             Trees = new TreesClient(_httpFacade, treeQueryBuilder);
             Files = new FilesClient(_httpFacade);
             Runners = new RunnersClient(_httpFacade);
@@ -156,6 +157,11 @@ namespace GitLabApiClient
         /// Acess GitLab's Pipeline API.
         /// </summary>
         public IPipelineClient Pipelines { get; }
+
+        /// <summary>
+        /// Acess GitLab's Job API.
+        /// </summary>
+        public IJobClient Jobs { get; }
 
         /// <summary>
         /// Access GitLab's Runners API.

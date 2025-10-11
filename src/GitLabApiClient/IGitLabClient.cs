@@ -81,6 +81,11 @@ namespace GitLabApiClient
         IPipelineClient Pipelines { get; }
 
         /// <summary>
+        /// Acess GitLab's Job API.
+        /// </summary>
+        IJobClient Jobs { get; }
+
+        /// <summary>
         /// Access GitLab's Runners API.
         /// </summary>
         IRunnersClient Runners { get; }

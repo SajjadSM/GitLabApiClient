@@ -62,6 +62,16 @@ namespace GitLabApiClient.Internal.Queries
             {
                 query.Add("username", options.TriggeredBy);
             }
+
+            if (options.PerPage.HasValue)
+            {
+                query.Add("per_page", options.PerPage.Value);
+            }
+
+            if (options.Page.HasValue)
+            {
+                query.Add("page", options.Page.Value);
+            }
         }
 
         #endregion

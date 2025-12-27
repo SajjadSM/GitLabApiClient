@@ -33,7 +33,7 @@ namespace GitLabApiClient
             options?.Invoke(queryOptions);
 
             string url = _queryBuilder.Build($"projects/{projectId}/pipelines", queryOptions);
-            return await _httpFacade.GetPagedList<Pipeline>(url);
+            return await _httpFacade.GetList<Pipeline>(url);
         }
 
         public async Task<IList<PipelineVariable>> GetVariablesAsync(ProjectId projectId, int pipelineId) =>
@@ -44,7 +44,7 @@ namespace GitLabApiClient
             var queryOptions = new JobQueryOptions();
             options?.Invoke(queryOptions);
 
-            var url = _jobQueryBuilder.Build($"projects/{projectId}/pipelines/{pipelineId}/jobs", queryOptions);
+            string url = _jobQueryBuilder.Build($"projects/{projectId}/pipelines/{pipelineId}/jobs", queryOptions);
             return await _httpFacade.GetPagedList<Job>(url);
         }
 

@@ -55,5 +55,15 @@ namespace GitLabApiClient.Models.Pipelines.Requests
         ///     The username of the user who triggered pipelines
         /// </summary>
         public string TriggeredBy { get; set; }
+
+        /// <summary>
+        ///     Number of items per page (default: 20, max: 100)
+        /// </summary>
+        public int? PerPage { get; set; }
+
+        /// <summary>
+        ///     Page number (default: 1)
+        /// </summary>
+        public int? Page { get; set; }
     }
 }

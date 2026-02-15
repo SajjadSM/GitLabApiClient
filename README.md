@@ -5,6 +5,11 @@
 
 GitLabApiClient is a .NET rest client for [GitLab API v4](https://docs.gitlab.com/ce/api/README.html).
 
+
+This Repository is forked from nmklotas to be maintained
+
+The nuget package name is: `GitLabApiClient.SajjadSM`
+
 ## Main features
 
 - Targets .NET Standard 2.0

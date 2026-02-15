@@ -32,5 +32,27 @@ namespace GitLabApiClient
         /// <param name="projectId">The ID, path or <see cref="Project"/> of the project.</param>
         /// <param name="jobId">The id of the job</param>
         Task<Job> RetryAsync(ProjectId projectId, int jobId);
+
+        /// <summary>
+        /// Cancels a job by its id <see cref="Project"/>.
+        /// </summary>
+        /// <param name="projectId">The ID, path or <see cref="Project"/> of the project.</param>
+        /// <param name="jobId">The id of the job</param>
+        Task<Job> CancelAsync(ProjectId projectId, int jobId);
+
+        /// <summary>
+        /// Gets an artifact file for a job by its id <see cref="Project"/>.
+        /// </summary>
+        /// <param name="projectId">The ID, path or <see cref="Project"/> of the project.</param>
+        /// <param name="jobId">The id of the job</param>
+        /// <param name="fileName">The artifact file name to download</param>
+        Task<Stream> GetArtifactFile(ProjectId projectId, int jobId, string fileName);
+
+        /// <summary>
+        /// Lists artifact files for a job by its id <see cref="Project"/>.
+        /// </summary>
+        /// <param name="projectId">The ID, path or <see cref="Project"/> of the project.</param>
+        /// <param name="jobId">The id of the job</param>
+        // Task<IList<ArtifactFile>> ListArtifactFiles(ProjectId projectId, int jobId);
     }
 }

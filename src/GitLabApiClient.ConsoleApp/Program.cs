@@ -34,12 +34,28 @@ class Program
             // var proj = await client.Projects.GetAsync(3798);
             // Console.WriteLine($"Retrieved {proj.Name} project.");
 
-            var result = await client.Jobs.PlayAsync(52, 24873);
-            Console.WriteLine($"Retried job with ID: {result.Id}, Status: {result.Status}");
+            // get list of projects
+            // var projs = await client.Projects.GetAsync();
+
+            // var proj = await client.Projects.GetAsync(16820);
+            // Console.WriteLine($"Retrieved {proj.Name} project.");
+
+            // var jobs = await client.Pipelines.GetJobsAsync(16820, 187170);
+
+            var cancel = await client.Jobs.CancelAsync(17032, 1704477);
+
+            // var result = await client.Jobs.GetArtifactFile(17032, 1704244, "hello.txt");
+            // using (var reader = new StreamReader(result))
+            // {
+            //     string content = await reader.ReadToEndAsync();
+            //     Console.WriteLine("Artifact file content:");
+            //     Console.WriteLine(content);
+            // }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error retrieving projects: {ex.Message}");
+            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine($"Full exception: {ex}");
         }
     }
 }

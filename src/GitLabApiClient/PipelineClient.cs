@@ -39,6 +39,9 @@ namespace GitLabApiClient
         public async Task<IList<PipelineVariable>> GetVariablesAsync(ProjectId projectId, int pipelineId) =>
             await _httpFacade.Get<IList<PipelineVariable>>($"projects/{projectId}/pipelines/{pipelineId}/variables");
 
+        public async Task<IList<Bridge>> GetBridgesAsync(ProjectId projectId, int pipelineId) =>
+            await _httpFacade.GetPagedList<Bridge>($"projects/{projectId}/pipelines/{pipelineId}/bridges");
+
         public async Task<IList<Job>> GetJobsAsync(ProjectId projectId, int pipelineId, Action<JobQueryOptions> options = null)
         {
             var queryOptions = new JobQueryOptions();

@@ -16,6 +16,7 @@ namespace GitLabApiClient
         Task DeleteAsync(ProjectId projectId, int pipelineId);
         Task<IList<Pipeline>> GetAsync(ProjectId projectId, Action<PipelineQueryOptions> options = null);
         Task<PipelineDetail> GetAsync(ProjectId projectId, int pipelineId);
+        Task<IList<Bridge>> GetBridgesAsync(ProjectId projectId, int pipelineId);
         Task<IList<Job>> GetJobsAsync(ProjectId projectId, int pipelineId, Action<JobQueryOptions> options = null);
         Task<IList<PipelineVariable>> GetVariablesAsync(ProjectId projectId, int pipelineId);
         Task<PipelineDetail> RetryAsync(ProjectId projectId, int pipelineId);

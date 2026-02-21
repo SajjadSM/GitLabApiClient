@@ -40,17 +40,8 @@ class Program
             // var proj = await client.Projects.GetAsync(16820);
             // Console.WriteLine($"Retrieved {proj.Name} project.");
 
-            // var jobs = await client.Pipelines.GetJobsAsync(16820, 187170);
+            var jobs = await client.Pipelines.GetBridgesAsync(17038, 206093);
 
-            var cancel = await client.Jobs.CancelAsync(17032, 1704477);
-
-            // var result = await client.Jobs.GetArtifactFile(17032, 1704244, "hello.txt");
-            // using (var reader = new StreamReader(result))
-            // {
-            //     string content = await reader.ReadToEndAsync();
-            //     Console.WriteLine("Artifact file content:");
-            //     Console.WriteLine(content);
-            // }
         }
         catch (Exception ex)
         {

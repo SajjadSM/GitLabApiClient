@@ -41,6 +41,14 @@ namespace GitLabApiClient
         Task<MergeRequest> GetAsync(ProjectId projectId, int mergeRequestId);
 
         /// <summary>
+        /// Get merge request changes (including diffs)
+        /// </summary>
+        /// <param name="projectId">The ID, path or <see cref="Project"/> of the project.</param>
+        /// <param name="mergeRequestIid">The IID of the merge request.</param>
+        /// <returns>Merge request with changes.</returns>
+        Task<MergeRequestChanges> GetChangesAsync(ProjectId projectId, int mergeRequestIid);
+
+        /// <summary>
         /// Creates merge request.
         /// </summary>
         /// <returns>The newly created merge request.</returns>

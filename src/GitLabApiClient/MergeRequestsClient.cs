@@ -84,6 +84,16 @@ namespace GitLabApiClient
         /// <returns>Shows information about a single merge request.</returns>
         public async Task<MergeRequest> GetAsync(ProjectId projectId, int mergeRequestId)
             => await _httpFacade.Get<MergeRequest>($"projects/{projectId}/merge_requests/{mergeRequestId}");
+
+        /// <summary>
+        /// Get merge request changes (including diffs)
+        /// </summary>
+        /// <param name="projectId">The ID, path or <see cref="Project"/> of the project.</param>
+        /// <param name="mergeRequestIid">The IID of the merge request.</param>
+        /// <returns>Merge request with changes.</returns>
+        public async Task<MergeRequestChanges> GetChangesAsync(ProjectId projectId, int mergeRequestIid)
+            => await _httpFacade.Get<MergeRequestChanges>($"projects/{projectId}/merge_requests/{mergeRequestIid}/changes");
+
         /// <summary>
         /// Creates merge request.
         /// </summary>
